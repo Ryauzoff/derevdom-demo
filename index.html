@@ -177,6 +177,16 @@
     .built ul { grid-template-columns: 1fr; }
   }
 
+  /* ---- кнопка в конце блока + липкая панель на мобильном ----------------- */
+  .sec-cta { margin-top: var(--v-6); display: flex; justify-content: center; }
+  .mbar { display: none; }
+  @media (max-width: 860px) {
+    .mbar { position: fixed; z-index: 60; left: 0; right: 0; bottom: 0; display: flex; gap: .6rem;
+      padding: .6rem .8rem calc(.6rem + env(safe-area-inset-bottom, 0px));
+      background: var(--v-canvas); border-top: 1px solid var(--v-hair-strong); box-shadow: 0 -6px 20px rgb(0 0 0 / .12); }
+    .mbar .v-btn { flex: 1; text-align: center; padding-block: .9em; }
+    .v-page { padding-bottom: 4.2rem; }
+  }
   /* ---- отзывы с Авито --------------------------------------------------- */
   .reviews { padding-block: var(--v-8); border-bottom: 1px solid var(--v-hair); }
   .reviews__head { display: flex; flex-wrap: wrap; gap: var(--v-6); align-items: end; justify-content: space-between; margin-bottom: var(--v-7); }
@@ -190,6 +200,9 @@
     -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z'/%3E%3C/svg%3E") 0 0 / var(--size) var(--size) repeat-x;
     mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z'/%3E%3C/svg%3E") 0 0 / var(--size) var(--size) repeat-x; }
   .reviews__stars--sm { --size: .8rem; vertical-align: middle; }
+  .reviews__all { grid-column: 1 / -1; justify-self: start; margin-top: var(--v-3); display: inline-block; padding: .85em 1.4em; border-radius: .6em;
+    background: var(--v-accent); color: var(--v-accent-ink); font-weight: 700; text-decoration: none; box-shadow: 0 4px 14px rgb(0 0 0 / .18); }
+  .reviews__all:hover { filter: brightness(1.08); text-decoration: none; }
   .reviews__list { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: var(--v-6); align-items: start; margin: 0; padding: 0; list-style: none; }
   .reviews__item { padding-top: var(--v-5); border-top: 1px solid var(--v-hair); }
   .reviews__text { text-wrap: pretty; }
@@ -302,7 +315,7 @@
           </div>
           <div class="title__body" data-v-cue="0 1 0 0">
             <h1 class="v-display">Ремонт и восстановление деревянных домов в Перми и Пермском крае</h1>
-            <p class="v-lede">Меняем венцы и усиливаем фундаменты, ремонтируем кровли, утепляем и обновляем фасады. <b>Перед началом работ осматриваем дом и составляем понятную смету.</b></p>
+            <p class="v-lede"><b>Меняем венцы и усиливаем фундаменты, ремонтируем кровли, утепляем и обновляем фасады. Перед началом работ осматриваем дом и составляем понятную смету.</b></p>
             <ul class="title__points">
               <li>Собственные строительные бригады</li>
               <li>Договор и подробная смета</li>
@@ -362,6 +375,7 @@
             <p>Утепление, обшивка фасада, конопатка, установка окон, обсада и окосячка.</p></div>
           </li>
         </ol>
+        <div class="sec-cta"><a class="v-btn" href="#zayavka" data-open-form>Записаться на осмотр</a></div>
       </div>
     </section>
 
@@ -385,6 +399,7 @@
             <span class="ba__tag ba__tag--after">Стало</span>
           </div>
         </div>
+        <div class="sec-cta"><a class="v-btn" href="#zayavka" data-open-form>Записаться на осмотр</a></div>
       </div>
     </section>
 
@@ -406,6 +421,7 @@
           <li><figure><div class="fig"><img src="assets/work5.webp" alt="Гостиная с большими окнами после ремонта" width="1200" height="1600" loading="lazy" decoding="async"></div><figcaption><b>05</b><span>Гостиная с новыми окнами</span></figcaption></figure></li>
           <li><figure><div class="fig"><img src="assets/work6.webp" alt="Комната с деревянным потолком и широким окном" width="1200" height="1600" loading="lazy" decoding="async"></div><figcaption><b>06</b><span>Комната после отделки</span></figcaption></figure></li>
         </ul>
+        <div class="sec-cta"><a class="v-btn" href="#zayavka" data-open-form>Записаться на осмотр</a></div>
       </div>
     </section>
 
@@ -420,7 +436,8 @@
           <div class="reviews__rating">
             <span class="reviews__num v-nums">5,0</span>
             <span class="reviews__stars" data-r="5" role="img" aria-label="рейтинг 5 из 5"></span>
-            <span>20 отзывов · <a href="https://www.avito.ru/user/902a6b497ba18868a657e92677857720/profile" rel="noopener">Читать все отзывы на Авито</a></span>
+            <span>20 отзывов</span>
+            <a class="reviews__all" href="https://www.avito.ru/user/902a6b497ba18868a657e92677857720/profile" rel="noopener">Читать все отзывы на Авито</a>
           </div>
         </div>
         <ul class="reviews__list" data-v-in data-v-stagger="90">
@@ -438,6 +455,7 @@
           </li>
         </ul>
         <p class="reviews__note">Тексты отзывов приводим без правок, как опубликованы на Авито. Рейтинг и число отзывов – по странице продавца.</p>
+        <div class="sec-cta"><a class="v-btn" href="#zayavka" data-open-form>Записаться на осмотр</a></div>
       </div>
     </section>
 
@@ -457,6 +475,7 @@
             <li><span>04</span><h3>Материалы</h3><p>Марки и объёмы – в спецификации к смете. Закупаем сами и отчитываемся чеками.</p></li>
             <li><span>05</span><h3>Уборка и вывоз</h3><p>После сдачи вывозим строительный мусор, участок оставляем чище, чем приняли.</p></li>
           </ul>
+          <div class="sec-cta"><a class="v-btn" href="#zayavka" data-open-form>Записаться на осмотр</a></div>
         </div>
         <figure class="estimate__fig" data-v-reveal="up" data-v-reveal-at="0.12 0.4">
           <div class="fig"><img src="assets/estimate-real.webp" alt="Сборка каркаса перекрытия на нашем объекте" width="1200" height="554" loading="lazy" decoding="async"></div>
@@ -493,6 +512,11 @@
       </div>
     </section>
 
+  <!-- Липкая панель кнопок на мобильном -->
+  <div class="mbar">
+    <a class="v-btn" href="#zayavka" data-open-form>Записаться на осмотр</a>
+    <a class="v-btn v-btn--ghost" href="tel:+79026324992">Позвонить</a>
+  </div>
   </main>
 
   <!-- ФОРМА ЗАЯВКИ: имя, контакт, что нужно. Заявка уходит в мессенджер Ильдара через бота.
